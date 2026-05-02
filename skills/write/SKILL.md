@@ -1,7 +1,7 @@
 ---
 name: write
-description: "Strips AI writing patterns and rewrites prose to sound natural in Chinese or English. Only activates on explicit writing or editing requests. Not for code comments, commit messages, or inline docs."
-when_to_use: "帮我写, 改稿, 润色, 去AI味, 写一段, draft, edit text, proofread, sound natural, polish, rewrite"
+description: "Strips AI writing patterns and rewrites prose to sound natural in Chinese, Japanese, or English. Only activates on explicit writing or editing requests. Not for code comments, commit messages, or inline docs."
+when_to_use: "帮我写, 改稿, 润色, 去AI味, 写一段, 書いて, 編集して, 推敲, リライト, 翻訳, draft, edit text, proofread, sound natural, polish, rewrite"
 metadata:
   version: "3.18.0"
 ---
@@ -17,7 +17,8 @@ Strip AI patterns from prose and rewrite it to sound human. Do not improve vocab
 1. **Text present?** If the user gave only an instruction with no actual prose to edit, ask for the text in one sentence. Do not proceed.
 2. **Audience locked?** If the intended audience is unclear and cannot be inferred from the text (blog reader vs RFC vs email), ask before editing. Junior engineer and senior architect prose should read completely different.
 3. **Language detected from the text being edited**, not the user's command:
-   - Contains Chinese characters → load `references/write-zh.md`
+   - Contains Japanese characters (Hiragana/Katakana) → load `references/write-ja.md`
+   - Contains Chinese characters (and no Hiragana/Katakana) → load `references/write-zh.md`
    - Otherwise → load `references/write-en.md`
 
 Read the loaded reference file. Then edit. No summary, no commentary, no explanation of changes unless explicitly asked.
@@ -30,16 +31,16 @@ Read the loaded reference file. Then edit. No summary, no commentary, no explana
 
 ## Bilingual Review Mode
 
-Activate when: mixed Chinese/English, "Chinese copywriting", "bilingual consistency", "release notes"
+Activate when: mixed CJK/English, "Chinese copywriting", "Japanese copywriting", "bilingual consistency", "release notes"
 
-**Chinese rules** (from https://github.com/mzlogin/chinese-copywriting-guidelines):
-- Space between Chinese and English characters (CN文字EN → CN 文字 EN)
-- No mixing of punctuation (Chinese uses 、。？！；：, not commas/periods)
+**Chinese & Japanese rules** (adapted from https://github.com/mzlogin/chinese-copywriting-guidelines):
+- Space between CJK and English characters (CJK文字EN → CJK 文字 EN)
+- No mixing of punctuation (Chinese uses 、。？！；：, Japanese uses 、。！？, not commas/periods for full width text)
 - Consistent terminology across all instances
 
-**English in Chinese documents**: Flag unexplained English, suggest translation or add context.
+**English in CJK documents**: Flag unexplained English, suggest translation or add context.
 
-**Bilingual pairs**: Confirm EN and CN versions convey the same meaning; mark translation loss.
+**Bilingual pairs**: Confirm EN and CJK versions convey the same meaning; mark translation loss.
 
 ## Release Note Template Mode
 
@@ -69,7 +70,7 @@ Before drafting, gather style references:
 | Reorganized headings without being asked | Do not restructure; edit in place unless structure changes are explicitly requested |
 | Appended a "changes made" list after the rewrite | Output is the edited text only. No changelog, no commentary. |
 | Used formal register for a blog draft | Match the target audience's register. Blog is conversational, not academic. |
-| Applied Chinese/English spacing rules to a pure-English text | Bilingual spacing rules (半角/全角) only apply when the text mixes Chinese and English |
+| Applied CJK/English spacing rules to a pure-English text | Bilingual spacing rules (半角/全角) only apply when the text mixes CJK and English |
 
 ## Output
 

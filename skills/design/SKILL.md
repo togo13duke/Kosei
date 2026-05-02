@@ -1,7 +1,7 @@
 ---
 name: design
 description: "Produces distinctive, production-grade UI for any component, page, or visual interface. Handles screenshot-driven iteration when the user sends an image with a visual complaint. Not for backend logic or data pipelines."
-when_to_use: "设计, 做页面, 做组件, 不好看, 不和谐, 样式, 前端, UI, build page, create component, make it look good, style, design, screenshot with visual complaint"
+when_to_use: "设计, 做页面, 做组件, 不好看, 不和谐, 样式, 前端, UI, デザイン, 画面作成, 見た目を良くする, スタイル, build page, create component, make it look good, style, design, screenshot with visual complaint"
 metadata:
   version: "3.18.0"
 ---

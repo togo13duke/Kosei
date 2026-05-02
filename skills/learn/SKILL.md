@@ -1,7 +1,7 @@
 ---
 name: learn
 description: "Runs a six-phase research workflow to turn unfamiliar domains or collected sources into publish-ready output. Not for quick lookups or single-file reads."
-when_to_use: "学习一下, 深入研究, 研究一下, 整理成文章, research, deep dive, help me understand, compile sources, unfamiliar domain"
+when_to_use: "学习一下, 深入研究, 研究一下, 整理成文章, 学習, 深掘り, リサーチ, 記事にまとめる, 調べて, research, deep dive, help me understand, compile sources, unfamiliar domain"
 metadata:
   version: "3.15.0"
 ---
@@ -17,7 +17,7 @@ Collect, organize, translate, explain, structure. Support the user's thinking; d
 ## Pre-check
 
 Check whether `/read` and `/write` skills are installed (look for their SKILL.md in the skills directories). Warn if missing, do not block:
-- `/read` missing -- Phase 1 fetch falls back to native `WebFetch` / `curl`; coverage on paywalled, JS-heavy, and Chinese-platform pages degrades.
+- `/read` missing -- Phase 1 fetch falls back to native `WebFetch` / `curl`; coverage on paywalled, JS-heavy, and Chinese/Japanese-platform pages degrades.
 - `/write` missing -- Phase 5 AI-pattern stripping falls back to manual scan. Phases 1-4 are unaffected.
 
 ## Choose Mode
@@ -99,7 +99,7 @@ When it reads clean from start to finish, the draft is ready for the user to pub
 | What happened | Rule |
 |---------------|------|
 | Collected 30 secondary explainers instead of primary sources | Phase 1 targets papers, official blogs, and repos by builders. Summaries are not sources. |
-| Used `WebFetch` or `curl` on URLs while `/read` was installed | Phase 1 fetch is not optional. `/read` owns the proxy cascade, paywall detection, and platform routing. Bypassing it silently loses coverage on paywalled, JS-heavy, or Chinese-platform pages. |
+| Used `WebFetch` or `curl` on URLs while `/read` was installed | Phase 1 fetch is not optional. `/read` owns the proxy cascade, paywall detection, and platform routing. Bypassing it silently loses coverage on paywalled, JS-heavy, or Chinese/Japanese-platform pages. |
 | Treated a convincing explainer as ground truth | Ask: does this appear in at least two different contexts from the same source? |
 | Phase 2 wrote summaries instead of teaching the concept | Digest means building the mental model. Summarizing is not digesting. |
 | AI offered to upload the article to a blog or social platform after the user said it was ready | Stop at confirmation. Publishing is the user's action, not yours. |

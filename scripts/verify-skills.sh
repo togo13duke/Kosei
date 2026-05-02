@@ -319,4 +319,5 @@ PYEOF
 # Rules files (outside skills/ so regex check above does not cover them)
 test -f rules/english.md && \
 test -f rules/chinese.md && \
+test -f rules/japanese.md && \
 test -f rules/anti-patterns.md && echo "references: ok"
